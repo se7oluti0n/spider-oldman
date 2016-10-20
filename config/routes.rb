@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :sessions, only: [:new, :create]
+  delete 'logout' => 'sessions#destroy'
+  
   get "signup" => "users#new"
   post "signup" => "users#create"
   root "homes#index"
