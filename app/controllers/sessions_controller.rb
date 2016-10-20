@@ -9,10 +9,9 @@ class SessionsController < ApplicationController
       if @user.authenticate(params[:password])
         session[:user_id] = @user.id
         flash[:success] = "Welcome back #{@user.name}"
-        redirect_to root_path
+        redirect_to users_show_path
       else
         flash[:error] = "Password is not correct!"
-        render 'new'
       end 
     else
       flash[:error] = "Sorry, user not found"
