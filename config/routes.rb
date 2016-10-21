@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
   delete 'logout' => 'sessions#destroy'
-  
-  resources :conversations do
-    resources :messages
-  end
 
   get "users/show"
   get "signup" => "users#new"

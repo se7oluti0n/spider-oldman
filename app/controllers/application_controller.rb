@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
       false
     end
   end
+
+  def require_user!
+    unless current_user
+      redirect_to login_path, flash: {error: "Please log in first"}
+    end
+  end 
 end
