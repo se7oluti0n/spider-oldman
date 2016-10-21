@@ -4,8 +4,10 @@ one:
   body: MyText
   sender_id: 1
   recipient_id: 1
+  seen_at: 2016-10-21 11:52:23
 
 two:
   body: MyText
   sender_id: 1
   recipient_id: 1
+  seen_at: 2016-10-21 11:52:23

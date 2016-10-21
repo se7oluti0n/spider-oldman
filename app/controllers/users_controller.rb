@@ -15,8 +15,9 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @unread_messages = Message.where(recipient_id: current_user.id, seen_at: nil).order("updated_at DESC")
   end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

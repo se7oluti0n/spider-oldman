@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+
+  resources :users do
+    resources :messages, shallow: true
+  end
+
+
   resources :sessions, only: [:new, :create]
   delete 'logout' => 'sessions#destroy'
 
-  get "users/show"
   get "signup" => "users#new"
   post "signup" => "users#create"
   root "homes#index"

@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration[5.0]
       t.text :body
       t.integer :sender_id
       t.integer :recipient_id
+      t.datetime :seen_at
 
       t.timestamps
     end
