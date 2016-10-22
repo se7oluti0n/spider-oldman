@@ -1,12 +1,12 @@
-# Homework 2 - *Project TrangMoon*
+# Homework 2 - *Hacker Chitchat*
 
-**Name of your app** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
+**Hacker Chitchat** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
 
 Submitted by: **Truong Tuan Manh**
 
-Time spent: **0** hours and increasing
+Time spent: **20** hours and increasing
 
-URL: **Insert your Heroku URL here**
+URL: **https://hacker-chitchat.herokuapp.com/**
 
 ## User Stories
 
@@ -44,7 +44,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
+![Video Walkthrough](http://i.imgur.com/CqWonT9.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -54,7 +54,7 @@ Describe any challenges encountered while building the app.
 
 * use `has_many :friends, :through => :friendships` to has reference to friends 
 * use `has_many :friendships`
-
+* use `belong_to` is also very useful
  
 ## License
 

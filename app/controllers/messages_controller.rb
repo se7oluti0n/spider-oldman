@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :require_user!
   
   def index
-    @received_messages = current_user.received_messages.order("updated_at DESC")
+    @received_messages = current_user.received_messages.order("created_at DESC")
   end
 
   def new
