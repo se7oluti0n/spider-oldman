@@ -1,15 +1,11 @@
 <div class="row">
   <%= link_to "Add friend", "#", class: "btn btn-primary" %>
   <%= link_to "New message", new_user_message_path(current_user), class: "btn btn-primary" %>
-  <%= link_to "Sent message", "#", class: "btn btn-primary" %>
-
-  <% if @unread_messages.any? %>
-    <% @unread_messages.each do |unread| %>
-      <% if not unread.seen? %>
-        <%=link_to "From #{User.find(unread.sender_id).name}", message_path(unread) %>
-      <% else %>
-        Message from <%= User.find(unread.sender_id).name %> already seen.
-      <%end%>
+  <%= link_to "Sent message", users_path(current_user), class: "btn btn-primary" %>
+  <br>
+  <% if @sent_messages %>
+    <% @sent_messages.each do |message| %>
+      Sent to <%= User.find(message.recipient_id).name%> <%= message.seen?? "Seen at #{message.seen_at}":" Unread " %>
       <br>
     <%end%>
   <% end %>

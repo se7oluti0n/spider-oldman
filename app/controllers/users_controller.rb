@@ -14,8 +14,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.where("id != #{current_user.id}")
+  end
+
   def show
-    @unread_messages = Message.where(recipient_id: current_user.id, seen_at: nil).order("updated_at DESC")
+    @sent_messages = current_user.sent_messages.order("created_at DESC")
   end
 
   private

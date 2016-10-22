@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
   resources :users do
+    resources :friendships, shallow: true
     resources :messages, shallow: true
   end
 
-
+  get "list_sent_messages" => 'messages#list_sent_messages'
   resources :sessions, only: [:new, :create]
   delete 'logout' => 'sessions#destroy'
 

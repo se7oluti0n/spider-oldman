@@ -1,5 +1,10 @@
 class MessagesController < ApplicationController
-    before_action :require_user!
+  before_action :require_user!
+  
+  def index
+    @received_messages = current_user.received_messages.order("updated_at DESC")
+  end
+
   def new
     @user = User.find params[:user_id]
     @message = Message.new
@@ -11,18 +16,24 @@ class MessagesController < ApplicationController
 
     if @message.save
       flash[:success] = "Message sent"     
-      redirect_to users_path(@user)
+      redirect_to user_messages_path(@user)
     else
       flash[:error] = "Sent failed"
     end
 
   end
   def show
-    @message = Message.where(id: params[:id], recipient_id: current_user.id)
-    if @messages and not @message.seen?
+    @message = Message.where(id: params[:id], recipient_id: current_user.id).first
+    if @message and not @message.seen?
       @message.seen_at = Time.now
-      @message.save!
+      @message.save
+    else
+      @message = nil
     end
+  end
+
+  def list_sent_messages
+    @sent_messages = current_user.sent_messages.order("created_at DESC")
   end
 
   def message_params

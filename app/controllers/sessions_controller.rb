@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       if @user.authenticate(params[:password])
         session[:user_id] = @user.id
         flash[:success] = "Welcome back #{@user.name}"
-        redirect_to users_path
+        redirect_to user_messages_path(@user)
       else
         flash[:error] = "Password is not correct!"
       end 

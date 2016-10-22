@@ -1,0 +1,8 @@
+<div class="list-group-item">
+  <%= user.name %>
+  <% if current_user.friendships.collect{|friendship| friendship.friend_id }.include? user.id %>
+      is a friend 
+  <%else%>
+    <%= link_to "Add friend", user_friendships_path(user_id: current_user.id, friend_id: user.id), method: 'post' %>
+  <%end%>
+</div>

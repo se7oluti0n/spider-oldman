@@ -1,5 +1,5 @@
-<h1>Messages#show</h1>
-<% if @message.any? %>
+<% if @message %>
   Message: <%= @message.body %>
+<% else %>
+    You already read this message.
 <% end %>
-<p>Find me in app/views/messages/show.html.erb</p>
