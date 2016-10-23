@@ -12,7 +12,7 @@
       <tr <%= 'class=table-active' if not unread.seen? %>>
           <th scope="row"><%=index+1%></th>  
           <th><%=link_to "#{unread.sender.name}", message_path(unread) %></th>
-          <th> <%= unread.created_at %></th>
+          <th> <%= time_ago_in_words(unread.created_at) + " ago" %></th>
         </tr>
     <%end%>
   <% end %>

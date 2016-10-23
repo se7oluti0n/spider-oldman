@@ -12,7 +12,7 @@
       <tr>
           <th scope="row"><%=index+1%></th>  
           <th><%= message.recipient.name %></th>
-          <th> <%= message.seen? ? message.seen_at : "Unread" %></th>
+          <th> <%= message.seen? ? time_ago_in_words(message.seen_at) + " ago" : "Unread" %></th>
         </tr>
     <%end%>
   <% end %>
