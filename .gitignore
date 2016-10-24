@@ -11,6 +11,8 @@
 /log/*
 /tmp/*
 *.swp
+/.vscode/*
+/coverage/*
 !/log/.keep
 !/tmp/.keep
 
